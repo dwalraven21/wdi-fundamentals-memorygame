@@ -10,44 +10,39 @@ const cards = ["queen", "queen", "king", "king"];
 //Set its value to an empty array []
 let cardsInPlay = [];
 
-// Create a variable cardOne.
-// Store the first item in the cards array in the variable cardOne.
-var cardOne = cards[0];
-
-//Now create a variable to represent the second card that the user 
-//flipped.
-var cardTwo = cards[1];
-
-/* Use the push() method to add cardOne 
-to the end of the cardsInPlay array. */
-
-/*Use the push() method to add cardTwo 
-to the end of the cardsInPlay array.
-*/
-cardsInPlay.push(cardOne, cardTwo);
-
-/* Use console.log() to display the cards 
-that the user flipped. */
-console.log("User flipped " + cardOne);
-console.log("User flipped " + cardTwo);
-
-/* Write an if statement that checks to see if the length 
-of the cardsInPlay array is 2. For the condition, you can 
-use the length property to find out how many items are in 
-the cardsInPlay array and then use the === operator to see 
-if the length is equal to 2. */
-if (cardsInPlay.length === 2) {
-
-/* check to see if the first card in the cardsInPlay array 
-cardsInPlay[0]) is equal to the second card in the cardsInPlay 
-array. If values are equal, execute an alert with the message 
-"You found a match!"*/
-	if  (cardsInPlay[0] === cardsInPlay[1]) {
-		alert("You found a match!")
-//If values are not equal, execute an alert with the message 
-//"Sorry, try again."
+//Check for match function.
+function checkForMatch() {
+	if (cardsInPlay[0] === cardsInPlay[1]) {
+  	console.log("You found a match!");
 	} else {
-		 alert("Sorry, try again.")
+  	console.log("Sorry, try again.");
 	}
-	}
+}
+
+function flipCard(cardID) {
+
+	/*	Within the flipCard function, add a console.log() statement 
+	to display the card that was flipped over.
+	We'll use the index number that is passed in when the flipCard 
+	function is called to access this card from the cards array 
+	like so: cards[cardId].The message that is logged in the console 
+	should read "User flipped queen" or "User flipped king". */
+	console.log("User flipped " + cards[cardID] + ".")
+
+
+	//Use the push method to add the card that the user flipped 
+	//(cards[cardId]) to the cardsInPlay array.
+	cardsInPlay.push(cards[cardID]);
+
+	//Call checkForMatch function.
+	if (cardsInPlay.length === 2) {
+	checkForMatch(); }
+
+}
+
+//Call the flipCard function, passing in 0 as an argument.
+flipCard(0);
+
+//Call the flipCard function again, passing in 2 as an argument.
+flipCard(2);
 
